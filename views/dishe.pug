@@ -1,0 +1,92 @@
+extends layout
+
+block content
+  h1= title
+  <div class="container">
+    h2 Gestión de los Platos
+    p 
+      b Filtrar por Categoría
+    <a href="/dishes/category/appetizer" style="text-decoration: none; color:black;"><button class="btn btn-basic">Appetizer</button></a>
+    <a href="/dishes/category/mains" style="text-decoration: none; color:black;"><button class="btn btn-basic">Mains</button></a>
+    <a href="/dishes/category/dessert" style="text-decoration: none; color:black;"><button class="btn btn-basic">Dessert</button></a>
+    <br/><br/>
+    <div class="row">
+    <div class="col-md-6">
+      <table border="1px">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Reseñas</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          each d in dishe
+            tr
+              td=d.name
+              td=d.category
+              td=d.price
+              <td>
+              a(href='/dishes/ver/comentarios/' + d._id) Ver
+              </td>
+              <td>
+              a(href='/dishes/edit/' + d._id) Editar
+              </td>
+              <td>
+              a(href='/dishes/delete/' + d._id) Eliminar
+              </td>
+        </tbody>
+        </table>
+      </div>
+      
+    <div class="col-md-4">
+    h2 Añadir un nuevo Plato
+    <form action="/dishes/add" method="POST">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="id" class="form-control" name="name" placeholder="titulo"><br/>
+      </div>
+      <div class="form-group">
+        <label>Imagen</label>
+        <input type="text" name="image" class="form-control" placeholder="image">
+      </div>
+      <div class="form-group">
+        <label>Categoría</label>
+        <input type="text" name="category" class="form-control" placeholder="category">
+      </div>
+      <div class="from-group">
+        <label>Label</label>
+        <input type="text" name="label" class="form-control" placeholder="label">
+      </div>
+      <div class="form-group">
+        <label>Precio</label>
+        <input type="text" name="price" class="form-control" placeholder="price">
+      </div>
+      <div class="form-group">
+        <label>Featured</label>
+        <input type="text" name="featured" class="form-control" placeholder="true">
+      </div>
+      
+      <label>Descripción</label><br/>
+      <textarea name="description"></textarea>
+      
+      <div class="form-group">
+        <label>rating</label>
+        <input type="number" class="form-control" name="ratings">
+      </div>
+      <div class="form-group">
+        <label>Comentario</label>
+        <input type="text" class="form-control" name="comment">
+      </div>
+      <div class="form-group">
+        <label>Author</label>
+        <input type="text" name="author" class="form-control">
+      </div>
+      <input type="submit" value="Enviar">
+    </form>
+    </div>
+  </div>
+  </div>

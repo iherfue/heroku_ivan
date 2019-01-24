@@ -1,0 +1,73 @@
+extends layout
+
+block content
+  h1= title
+  <div class="container">
+    h2 Gestionar Promociones
+    p 
+      b Filtrar por label
+    <a href="/promotion/label/New" style="text-decoration: none; color:black;"><button class="btn btn-basic">New</button></a>
+    <a href="/promotion/label/Old" style="text-decoration: none; color:black;"><button class="btn btn-basic">Old</button></a>
+    <br/><br/>
+    <div class="row">
+    <div class="col-md-6">
+      <table border="1px">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Label</th>
+            <th>Precio</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          each d in promotion
+            tr
+              td=d.name
+              td=d.label
+              td=d.price
+              <td>
+              a(href='/promotion/edit/' + d._id) Editar
+              </td>
+              <td>
+              a(href='/promotion/delete/' + d._id) Eliminar
+              </td>
+        </tbody>
+        </table>
+      </div>
+      <div class="col-md-5">
+      h2 Añadir una nueva promoción
+      <form action="/promotion/add" method="POST">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" id="id" class="form-control" name="name" placeholder="titulo"><br/>
+        </div>
+        <div class="form-group">
+          <label>Imagen</label>
+          <input type="text" name="image" class="form-control" placeholder="image">
+        </div>
+        <div class="from-group">
+          <label>Label</label>
+          <select name="label">
+            <option>Old</option>
+            <option>New</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Precio</label>
+          <input type="text" name="price" class="form-control" placeholder="price">
+        </div>
+        <div class="form-group">
+          <label>Featured</label>
+          <select name="featured">
+            <option value="true">Si</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        
+        <label>Descripción</label><br/>
+        <textarea name="description"></textarea><br/>
+        <input type="submit" class="btn btn-primary" value="Enviar">
+      </form>
+      </div>

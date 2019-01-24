@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  <div class="col-md-6 offset-md-3">
+    form(method="POST" action='/dishes/edit/' +dishe.id)
+      <div class="form-group">
+        <label for"nombre">Nombre</label>
+        input(type='text' class="form-control" id="nombre" name="name" placeholder="titulo" value=dishe.name)
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        input(type="text" name="image" id="imagen" class="form-control" placeholder="image" value=dishe.image)
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoría</label>
+        input(type="text" name="category" id="categoria" class="form-control" placeholder="category" value=dishe.category)
+      </div>
+      <div class="form-group">
+        <label for="label">Label</label>
+        input(type="text" name="label" id="label" class="form-control" placeholder="label" value=dishe.label)
+      </div>
+      <div class="form-group">
+        <label for="price">Precio</label>
+        input(type="text" name="price" class="form-control" placeholder="price" value=dishe.price)
+      </div>
+      <div class="form-group">
+        <label for="featured">Featured</label>
+        input(type="text" name="featured" class="form-control"  value=dishe.featured)
+      </div>
+      textarea=dishe.description
+    
+      <br/><br/>
+      <input type="submit" value="Enviar">
+      </div>
+    </form>

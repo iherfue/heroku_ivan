@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= title
+  <div class="col-md-6 offset-md-3">
+    form(method="POST" action='/leaders/edit/' + leader.id)
+      <div class="form-group">
+        <label for"nombre">Nombre</label>
+        input(type='text' class="form-control" id="nombre" name="name" placeholder="titulo" value=leader.name)
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        input(type="text" name="image" id="imagen" class="form-control" placeholder="image" value=leader.image)
+      </div>
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        input(type="text" name="designation" class="form-control" placeholder="designation" value=leader.designation)
+      </div>
+      <div class="form-group">
+        <label for="abbr">Abbr</label>
+        input(type="text" name="abbr" class="form-control"  value=leader.abbr)
+      </div>
+      <div class="form-group">
+        <label for="featured">Featured</label>
+        input(type="text" name="fea+" class="form-control"  value=leader.featured)
+      </div>
+      
+      <label>Descripción</label><br/>
+      <textarea name="description"></textarea>
+      <input type="submit" value="Enviar">
+      </div>
+    </form>

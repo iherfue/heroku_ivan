@@ -1,0 +1,55 @@
+extends layout
+
+block content
+      a(href='/dishes/add/comentarios/' + dishe.id)
+        </br>
+        <input class="btn btn-info" value="Añadir Comentario" type="button">
+      each b in dishe.comments
+        <div class="col-md-4 offset-md-4"><br/>
+          <div class="card">
+            <div class="card-header">
+              <p style="float: right;">
+                a(href='/dishes/edit/dishes/' + dishe._id + '/comentarios/' + b._id) Editar </br>
+                a(href='/dishes/delete/dishes/' + dishe._id + '/comentarios/' + b._id) Eliminar
+                  </p>
+              h4(class="card-title")=b.author
+              case b.ratings
+                when 1
+                  <span style="color: Yellow;">
+                  <i class="fas fa-star"></i>
+                  - break
+                when 2
+                  <span style="color: Yellow;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i> 
+                  - break
+                when 3
+                  <span style="color: Yellow;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  - break
+                when 4
+                  <span style="color: Yellow;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  - break
+                when 5
+                  <span style="color: Yellow;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  - break
+            </div>
+            <div class="card-body">
+              <div class="card-text">
+                p(class="card-title")=b.comment
+              </div>
+            </div>
+          </div>
+          </div>
+        

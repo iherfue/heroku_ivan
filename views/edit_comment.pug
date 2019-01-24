@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  each c in dishe.comments
+   form(method="POST")
+    <div class="form-group">
+      <label for"nombre">Ratings</label>
+      input(type='number' class="form-control"  id="nombre" name="ratings"  placeholder="titulo" value=c.ratings)
+    </div>
+    <div class="form-group">
+      <label for="comentario">Comentario</label>
+      input(type="text" name="comment" id="imagen" class="form-control" placeholder="image" value=c.comment)
+    </div>
+    <div class="form-group">
+      <label for="comentario">Autor</label>
+      input(type="text" name="author" id="imagen" class="form-control" value=c.author)
+    </div>
+    <input type="submit" value="Enviar">
+  </form>

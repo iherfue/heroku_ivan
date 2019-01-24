@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    h1=title
+    form(method="POST")
+      <div class="form-group">
+        <label for"nombre">Nombre</label>
+        input(type='text' class="form-control" id="nombre" name="name" placeholder="titulo" value=promotion.name)
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        input(type="text" name="image" id="imagen" class="form-control" placeholder="image" value=promotion.image)
+      </div>
+      <div class="form-group">
+        <label for="label">Label</label>
+        input(type="text" name="label" id="label" class="form-control" placeholder="label" value=promotion.label)
+      </div>
+      <div class="form-group">
+        <label for="price">Precio</label>
+        input(type="text" name="price" class="form-control" placeholder="price" value=promotion.price)
+      </div>
+      <div class="form-group">
+        <label for="featured">Featured</label>
+        input(type="text" name="featured" class="form-control"  value=promotion.featured)
+      </div>
+      <input type="submit" name="envia" value="Enviar">
+    </form>

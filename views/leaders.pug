@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  h1= title
+  <div class="container">
+    h2 Gestionar Leaders
+    p 
+      b Filtrar por Categoría
+    <a href="/leaders/abbr/CE0" style="text-decoration: none; color:black;"><button class="btn btn-basic">CEO</button></a>
+    <a href="/leaders/abbr/CF0" style="text-decoration: none; color:black;"><button class="btn btn-basic">CF0</button></a>
+    <a href="/leaders/abbr/CT0" style="text-decoration: none; color:black;"><button class="btn btn-basic">CT0</button></a>
+    <a href="/leaders/abbr/EC" style="text-decoration: none; color:black;"><button class="btn btn-basic">EC</button></a>
+    <br/><br/>
+    <div class="row">
+    <div class="col-md-6">
+      <table border="1px">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Abbr</th>
+            <th>Asignación</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          each d in leader
+            tr
+              td=d.name
+              td=d.abbr
+              td=d.designation
+              <td>
+              a(href='/leaders/edit/' + d._id) Editar
+              </td>
+              <td>
+              a(href='/leaders/delete/' + d._id) Eliminar
+              </td>
+        </tbody>
+        </table>
+      </div>
+      
+    <div class="col-md-4">
+    h2 Añadir un nuevo Leader
+    <form action="/leaders/add" method="POST">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" id="id" class="form-control" name="name" placeholder="titulo"><br/>
+      </div>
+      <div class="form-group">
+        <label>Imagen</label>
+        <input type="text" name="image" class="form-control" placeholder="image">
+      </div>
+      <div class="form-group">
+        <label>Designation</label>
+        <input type="text" name="designation" class="form-control" placeholder="category">
+      </div>
+      <div class="from-group">
+        <label>Abbr</label>
+        <select name="abbr">
+          <option>CE0</option>
+          <option>CF0</option>
+          <option>CT0</option>
+          <option>EC</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Featured</label>
+        <input type="text" name="featured" class="form-control" placeholder="true">
+      </div>
+      
+      <label>Descripción</label><br/>
+      <textarea name="description"></textarea>
+      
+      <input type="submit" value="Enviar">
+    </form>
+    </div>
+  </div>
+  </div>
